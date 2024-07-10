@@ -1,0 +1,171 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eeeeee;
+    height: 100vh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 5rem;
+    background: #eeeeee;
+}
+
+h1 {
+    text-align: center;
+}
+
+.dice {
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    transform-style: preserve-3d;
+    transition: 1s ease; 
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #f6f3f0;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    background: linear-gradient(145deg, #dddbd8, #fff);
+}
+
+.face::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #f6f3f0;
+    transform: translateZ(-1px);
+}
+
+.face::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+}
+
+.front {
+    transform: translateZ(50px);
+}
+
+.back {
+    transform: rotateX(180deg) translateZ(50px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.dice {
+    transform: rotateX(0deg) rotateY(0deg);
+}
+
+/* Dice 1 */
+.front::after {
+    width: 30px;
+    height: 30px;
+    background: red;
+    margin: -15px 0 0 -15px;
+
+}
+
+/* Dice 6*/
+.back::after {
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 0,
+    0 25px,
+    40px 25px,
+    0 50px,
+    40px 50px
+}
+
+/* Dice 2 */
+.top::after {
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 50px
+}
+
+/* Dice 5 */
+.bottom::after {
+    margin: -36px 0 0 -36px;
+    box-shadow: 26px 26px,
+    52px 52px,
+    52px 0,
+    0 52px
+}
+
+/* Dice 3 */
+.left::after {
+    margin: -35px 0 0 -35px;
+    box-shadow: 50px 50px,
+    25px 25px
+}
+
+/* Dice 4 */
+.right::after {
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 0,
+    0 40px,
+    40px 40px
+}
+
+.dice-2 {
+    font-size: 3rem;
+}
+
+button {
+    border: 3px solid lightcoral;
+    border-radius: .5rem;
+    color: lightcoral;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightcoral;
+    color: white
+}
+
+button:active {
+    background-color: rgb(196, 89, 89);
+    border: 3px solid rgb(196, 89, 89);
+}
+
+@keyframes rolling {
+    50% {
+        transform: rotateX(445deg) rotateY(455deg);
+    }
+}
